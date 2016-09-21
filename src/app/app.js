@@ -5,15 +5,10 @@ import 'angular-aria';
 import 'angular-material';
 
 angular.module('app', [
-        'ngComponentRouter'
+        'ngComponentRouter', 'ngMaterial', 'ngAnimate'
     ]).config(($locationProvider) => {
         $locationProvider.html5Mode(false);
     }).value('$routerRootComponent', 'app')
     .component('app', {
-        template: require('./app.template.html'),
-        $routeConfig: [{
-            // path: '/slides',
-            // name: 'Slides',
-            // component: 'slides'
-        }]
+        template: require('./app.template.html')
     });
