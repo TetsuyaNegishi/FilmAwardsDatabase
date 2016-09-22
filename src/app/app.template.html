@@ -1,16 +1,13 @@
-<div layout="column" layout-fill>
-	<md-toolbar md-whiteframe="4">
+<md-toolbar>
 
-		<div class="md-toolbar-tools">
-			<span>Film Awards Database</span>
+	<div class="md-toolbar-tools">
 
-			<!-- fill up the space between left and right area -->
-			<span flex></span>
+		<span>Film Awards Database</span>
 
-		</div>
+		<span flex></span>
 
-	</md-toolbar>
-	<md-content>
-		<ng-outlet></ng-outlet>
-	</md-content>
-</div>
+	</div>
+
+</md-toolbar>
+
+<ng-outlet layout="column" flex></ng-outlet>
