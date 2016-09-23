@@ -3,10 +3,11 @@ import 'ngComponentRouter';
 import 'angular-animate';
 import 'angular-aria';
 import 'angular-material';
+import 'angular-material-data-table/dist/md-data-table.js';
 
 import './kinejun';
 
-angular.module('app', ['ngComponentRouter', 'ngMaterial', 'ngAnimate', 'kinejun'])
+angular.module('app', ['ngComponentRouter', 'ngMaterial', 'ngAnimate', 'md.data.table', 'kinejun'])
     .config(($locationProvider) => {
         $locationProvider.html5Mode(false);
     }).value('$routerRootComponent', 'app')
