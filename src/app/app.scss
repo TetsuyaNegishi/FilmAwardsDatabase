@@ -1,3 +1,8 @@
 @import "~angular-material/angular-material.scss";
 @import "~angular-material-data-table/dist/md-data-table.css";
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+
+md-card {
+	flex: 0 0 auto;
+	position: relative;
+}

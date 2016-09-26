@@ -10,7 +10,7 @@ export default {
         $scope.filmDatas = filmDatas;
         $scope.query = {
             order: 'year',
-            limit: 5,
+            limit: 10,
             page: 1
         };
     }]
