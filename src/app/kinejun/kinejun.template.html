@@ -2,18 +2,47 @@
 
 	<md-sidenav layout="column" class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
 		<md-content layout="column" flex class="md-padding">
-			<h1>aa</h1>
-			<h1>aa</h1>
-			<h1>aa</h1>
-			<h1>aa</h1>
-			<h1>aa</h1>
-			<h1>aa</h1>
-			<h1>aa</h1>
-			<h1>aa</h1>
-			<h1>aa</h1>
-			<h1>aa</h1>
-			<h1>aa</h1>
-			<h1>aa</h1>
+			<form>
+				<h3 class="md-title">絞り込み検索</h3>
+				<h4>受賞年</h4>
+				<div layout="row" class="md-block">
+					<md-input-container>
+						<label>start</label><input ng-model="searchKinejun.yearStart" type="number"></input>
+					</md-input-container>
+					<md-input-container>
+						<label>end</label><input ng-model="searchKinejun.yearEnd" type="number"></input>
+					</md-input-container>
+				</div>
+				<h4>部門</h4>
+				<md-input-container class="md-block">
+					<label>部門</label>
+					<md-select ng-model="searchKinejun.janle">
+						<md-option value="日本映画">日本映画ベスト・テン</md-option>
+						<md-option value="外国映画">外国映画ベスト・テン</md-option>
+						<md-option value="芸術的に最も優れた映画">芸術的に最も優れた映画</md-option>
+						<md-option value="娯楽的に最も優れた映画">娯楽的に最も優れた映画</md-option>
+						<md-option value="芸術的優秀映画">芸術的優秀映画</md-option>
+						<md-option value="娯楽的優秀映画">娯楽的優秀映画</md-option>
+					</md-select>
+				</md-input-container>
+				<h4>ランク</h4>
+				<div layout="row" class="md-block">
+					<md-input-container>
+						<label>start</label><input ng-model="searchKinejun.rankStart" type="number"></input>
+					</md-input-container>
+					<md-input-container>
+						<label>end</label><input ng-model="searchKinejun.rankEnd" type="number"></input>
+					</md-input-container>
+				</div>
+				<h4>タイトル</h4>
+				<md-input-container class="md-block">
+					<label>タイトル</label><input ng-model="searchKinejun.title"></input>
+				</md-input-container>
+				<h4>監督</h4>
+				<md-input-container class="md-block">
+					<label>監督</label><input ng-model="searchKinejun.director"></input>
+				</md-input-container>
+			</form>
 		</md-content>
 	</md-sidenav>
 
@@ -41,7 +70,12 @@
 						</tr>
 					</thead>
 					<tbody md-body>
-						<tr md-row ng-repeat="filmData in filmDatas | orderBy: query.order | limitTo: query.limit : (query.page -1) * query.limit">
+						<tr md-row ng-repeat="filmData in filmDatas
+						| filter: { 'janle': searchKinejun.janle, title: searchKinejun.title, 'director': searchKinejun.director}
+						| yearStart: searchKinejun.yearStart | yearEnd: searchKinejun.yearEnd
+						| rankStart: searchKinejun.rankStart | rankEnd: searchKinejun.rankEnd
+						| orderBy: query.order
+						| limitTo: query.limit : (query.page -1) * query.limit">
 							<td md-cell>{{filmData.year}}</td>
 							<td md-cell>{{filmData.janle}}</td>
 							<td md-cell>{{filmData.rank}}</td>
