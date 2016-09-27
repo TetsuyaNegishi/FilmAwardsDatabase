@@ -86,7 +86,9 @@
 				</table>
 			</md-table-container>
 
-			<md-table-pagination md-limit="query.limit" md-limit-options="[10, 20, 50, 100]" md-page="query.page" md-total="{{filmDatas.length}}" md-on-paginate="getDesserts" md-page-select></md-table-pagination>
+			<md-table-pagination md-limit="query.limit" md-limit-options="[10, 20, 50, 100]" md-page="query.page" md-total="{{(filmDatas | filter: { 'janle': searchKinejun.janle, title: searchKinejun.title, 'director': searchKinejun.director}
+			| yearStart: searchKinejun.yearStart | yearEnd: searchKinejun.yearEnd
+			| rankStart: searchKinejun.rankStart | rankEnd: searchKinejun.rankEnd).length}}" md-page-select></md-table-pagination>
 		</md-card>
 	</md-content>
 
