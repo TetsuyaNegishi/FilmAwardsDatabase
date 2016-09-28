@@ -4,7 +4,7 @@ var ngAnnotatePlugin = require('ng-annotate-webpack-plugin');
 module.exports = {
     entry: path.resolve(__dirname, 'src/main.js'),
     output: {
-        path: path.join(__dirname, 'public'),
+        path: path.join(__dirname, 'doc'),
         filename: 'bundle.js',
         sourceMapFilename: 'bundle.map.js'
     },
