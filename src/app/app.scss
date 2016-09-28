@@ -6,3 +6,7 @@ md-card {
 	flex: 0 0 auto;
 	position: relative;
 }
+
+div.filter-row > md-input-container {
+	margin: 0;
+}
